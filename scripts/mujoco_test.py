@@ -6,7 +6,7 @@ import mujoco.viewer
 import numpy as np
 
 # File URDF
-urdf_path = Path("library\\ABB\\CRB15000_5kg_950_gripper\\CRB15000_5kg_950_with_actuators.xml").resolve()
+urdf_path = Path("library/ABB/CRB15000_5kg_950_v1/CRB15000_5kg_950.urdf").resolve()
 
 # Carica il modello
 model = mujoco.MjModel.from_xml_path(str(urdf_path))
