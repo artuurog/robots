@@ -6,13 +6,13 @@ import mujoco.viewer
 import numpy as np
 
 # File URDF
-urdf_path = Path("library\\ABB\\CRB15000_5kg_950_v1\\CRB15000_5kg_950_with_actuators.xml").resolve()
+urdf_path = Path("library\\ABB\\CRB15000_5kg_950_gripper\\CRB15000_5kg_950_with_actuators.xml").resolve()
 
 # Carica il modello
 model = mujoco.MjModel.from_xml_path(str(urdf_path))
 data = mujoco.MjData(model)
 
-# Giunti mobili del robot
+# Giunti del robot
 joint_names = [
     "joint_1",
     "joint_2",
@@ -53,7 +53,7 @@ for name, q in zip(joint_names, data.qpos[qpos_adr]):
     print(f"{name}: {np.rad2deg(q):+.1f}° ({q:+.4f} rad)")
 
 # Mostra il robot e mantieni aperta la finestra.
-with mujoco.viewer.launch_passive(model, data) as viewer:
+with mujoco.viewer.launch(model, data) as viewer:
     viewer.sync()
 
     while viewer.is_running():
