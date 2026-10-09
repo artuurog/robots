@@ -1,0 +1,56 @@
+<mujoco model="CRB15000_5kg_950">
+  <compiler angle="radian"/>
+
+  <asset>
+    <mesh name="base_link" file="meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="link_1" file="meshes/link_1.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="link_2" file="meshes/link_2.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="link_3" file="meshes/link_3.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="link_4" file="meshes/link_4.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="link_5" file="meshes/link_5.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="link_6" file="meshes/link_6.stl" scale="0.001 0.001 0.001"/>
+  </asset>
+
+  <worldbody>
+    <geom quat="1 0 0 0" type="mesh" mesh="base_link"/>
+    <body name="link_1" pos="0 0 0.265">
+      <inertial pos="-7.74683e-08 0.0103624 0.0695296" quat="0.69135 0.72252 0 0" mass="21.7239" diaginertia="0.090397 0.0859841 0.0509159"/>
+      <joint name="joint_1" range="-3.14159 3.14159" actuatorfrcrange="-175.44 175.44"/>
+      <geom pos="0 0 -0.265" quat="1 0 0 0" type="mesh" mesh="link_1"/>
+      <body name="link_2">
+        <inertial pos="2.13925e-07 -0.0500093 0.221993" quat="0.707107 -2.84622e-06 2.84622e-06 0.707107" mass="33.6681" diaginertia="1.04625 1.02464 0.052503"/>
+        <joint name="joint_2" range="-3.14159 3.14159" actuatorfrcrange="-175.44 175.44" axis="0 1 0"/>
+        <geom pos="0 0 -0.265" quat="1 0 0 0" type="mesh" mesh="link_2"/>
+        <body name="link_3" pos="0 0 0.444">
+          <inertial pos="0.0128128 0.094417 0.0247403" quat="0.960199 0.138946 0.239675 -0.0356105" mass="26.5595" diaginertia="0.15119 0.111927 0.089045"/>
+          <joint name="joint_3" range="-3.92699 0.95993" actuatorfrcrange="-90.6 90.6" axis="0 1 0"/>
+          <geom pos="0 0 -0.709" type="mesh" mesh="link_3"/>
+          <body name="link_4" pos="0 0 0.11">
+            <inertial pos="0.160559 0.0419769 -1.9471e-07" quat="-0.124004 0.696156 0.123971 0.696147" mass="21.8116" diaginertia="0.305648 0.298527 0.0381802"/>
+            <joint name="joint_4" range="-3.14159 3.14159" actuatorfrcrange="-18.72 18.72" axis="1 0 0"/>
+            <geom pos="0 0 -0.819" quat="1 0 0 0" type="mesh" mesh="link_4"/>
+            <body name="link_5" pos="0.47 0 0">
+              <inertial pos="-0.014715 -0.078565 0.0427552" quat="0.600675 -0.299666 -0.162952 0.723075" mass="23.6369" diaginertia="0.107325 0.100391 0.0738556"/>
+              <joint name="joint_5" range="-3.14159 3.14159" actuatorfrcrange="-21.44 21.44" axis="0 1 0"/>
+              <geom pos="-0.47 0 -0.819" quat="1 0 0 0" type="mesh" mesh="link_5"/>
+              <body name="link_6" pos="0.101 0 0.08">
+                <inertial pos="0.0131507 0.000239817 -0.00034194" quat="0.468742 0.883333 -0.00165454 0.000516009" mass="1.15004" diaginertia="0.001012 0.00060438 0.000593615"/>
+                <joint name="joint_6" range="-4.71239 4.71239" actuatorfrcrange="-9.2 9.2" axis="1 0 0"/>
+                <geom pos="-0.571 0 -0.899" quat="1 0 0 0" type="mesh" mesh="link_6"/>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <general name="joint_1_position" joint="joint_1" ctrlrange="-3.14159 3.14159" ctrllimited="true" forcelimited="true" forcerange="-175.44 175.44" biastype="affine" gainprm="100" biasprm="0 -100"/>
+    <general name="joint_2_position" joint="joint_2" ctrlrange="-3.14159 3.14159" ctrllimited="true" forcelimited="true" forcerange="-175.44 175.44" biastype="affine" gainprm="100" biasprm="0 -100"/>
+    <general name="joint_3_position" joint="joint_3" ctrlrange="-3.92699 0.95993" ctrllimited="true" forcelimited="true" forcerange="-90.6 90.6" biastype="affine" gainprm="100" biasprm="0 -100"/>
+    <general name="joint_4_position" joint="joint_4" ctrlrange="-3.14159 3.14159" ctrllimited="true" forcelimited="true" forcerange="-18.72 18.72" biastype="affine" gainprm="100" biasprm="0 -100"/>
+    <general name="joint_5_position" joint="joint_5" ctrlrange="-3.14159 3.14159" ctrllimited="true" forcelimited="true" forcerange="-21.44 21.44" biastype="affine" gainprm="100" biasprm="0 -100"/>
+    <general name="joint_6_position" joint="joint_6" ctrlrange="-4.71239 4.71239" ctrllimited="true" forcelimited="true" forcerange="-9.2 9.2" biastype="affine" gainprm="100" biasprm="0 -100"/>
+  </actuator>
+</mujoco>
