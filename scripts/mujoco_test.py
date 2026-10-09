@@ -5,8 +5,8 @@ import mujoco
 import mujoco.viewer
 import numpy as np
 
-# File URDF nella stessa cartella dello script
-urdf_path = Path("library\\ABB\\CRB15000_5kg_950_v1\\CRB15000_5kg_950.urdf").resolve()
+# File URDF
+urdf_path = Path("library\\ABB\\CRB15000_5kg_950_v1\\CRB15000_5kg_950_with_actuators.xml").resolve()
 
 # Carica il modello
 model = mujoco.MjModel.from_xml_path(str(urdf_path))
@@ -31,7 +31,7 @@ for name in joint_names:
         name,
     )
     if joint_id == -1:
-        raise ValueError(f"Giunto non trovato: {name}")
+        raise ValueError(f"joint not found: {name}")
     joint_ids.append(joint_id)
 
 qpos_adr = np.array([model.jnt_qposadr[j] for j in joint_ids])
@@ -48,7 +48,7 @@ data.qvel[dof_adr] = 0.0
 # Aggiorna cinematica diretta, pose dei link e rendering.
 mujoco.mj_forward(model, data)
 
-print("Stato impostato:")
+print("Imposed state:")
 for name, q in zip(joint_names, data.qpos[qpos_adr]):
     print(f"{name}: {np.rad2deg(q):+.1f}° ({q:+.4f} rad)")
 

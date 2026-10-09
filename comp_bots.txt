@@ -1,2 +1,0 @@
-sources/Yaskawa/GP Series/motoman_gp7_support/urdf/gp7.urdf
-sources/Yaskawa/GP Series/motoman_gp110_support/urdf/gp110.urdf

@@ -1,4 +1,0 @@
-numpy
-yourdfpy
-ruff
-pytest
